@@ -1,0 +1,20 @@
+--- src/frame.c	2016-02-24 07:42:32.000000000 -0300
++++ src/frame.c	2017-04-09 12:36:51.100556257 -0300
+@@ -496,6 +496,8 @@
+                 hoffset = w3 - logical_rect.width - screen_info->params->title_horizontal_offset;
+                 break;
+             case ALIGN_CENTER:
++                w5 += right;
++                w1 = (w5 / 2) - (w3 / 2) - w2;
+                 hoffset = (w3 / 2) - (logical_rect.width / 2);
+                 break;
+         }
+@@ -525,7 +527,7 @@
+                 w1 = right - w2 - w3 - w4 - screen_info->params->title_horizontal_offset;
+                 break;
+             case ALIGN_CENTER:
+-                w1 = left + ((right - left) / 2) - (w3 / 2) - w2;
++                w1 = (w5 / 2) - (w3 / 2) - w2;
+                 break;
+         }
+         if (w1 < left)
